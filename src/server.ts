@@ -26,7 +26,7 @@ app.use(cors({ origin: corsOrigin }));
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok" });
+  res.status(200).send("OK");
 });
 
 app.use("/api", authRouter);

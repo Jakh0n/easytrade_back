@@ -17,6 +17,8 @@ const envSchema = z.object({
   OPENAI_API_KEY: z.string().optional(),
   OPENAI_MODEL: z.string().min(1).default("gpt-4o"),
   CORS_ORIGIN: z.string().min(1).default("*"),
+  /** Public URL (e.g. https://your-app.onrender.com). Render also sets RENDER_EXTERNAL_URL. */
+  APP_URL: z.string().url().optional(),
 });
 
 const parsed = envSchema.safeParse(process.env);
